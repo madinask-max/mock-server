@@ -26,19 +26,20 @@ app.use((req, res, next) => {
 
 // Example mock API 2 (POST)
 app.post('/api/login', (req, res) => {
-    console.log("Request body:", req.body);
+    const { FirstName, MiddleName, LastName } = req.body || {};
 
-    const username = req.body?.username;
-
-    if (!username) {
+    if (!FirstName || !LastName) {
         return res.status(400).json({
-            error: "username missing"
+            success: false,
+            message: "FirstName and LastName are required"
         });
     }
 
+    const completeName = `Welcome ${FirstName} ${MiddleName} ${LastName}`;
+
     res.json({
         success: true,
-        message: `Welcome ${username}`,
+        CompleteName: completeName,
         token: "mock-jwt-token-123"
     });
 });
