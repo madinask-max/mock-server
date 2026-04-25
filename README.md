@@ -19,3 +19,18 @@ app.get/app.post route runs
    ↓
 response sent
 
+mock-server/
+│
+├── server.js          → starts server
+├── app.js             → configures express app
+│
+├── routes/
+│   └── authRoutes.js  → API routes
+│
+├── controllers/
+│   └── authController.js → business logic
+│
+├── middleware/
+│   └── logger.js      → curl logger
+│
+└── package.json
