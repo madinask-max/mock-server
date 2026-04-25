@@ -55,6 +55,7 @@ app.get('/api/order/:id', (req, res) => {
 
 // Start server
 const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Mock server running on http://localhost:${PORT}`);
+const appPort = process.env.APP_PORT || PORT;
+app.listen(appPort, () => {
+    console.log(`Mock server running on http://localhost:${appPort}`);
 });
